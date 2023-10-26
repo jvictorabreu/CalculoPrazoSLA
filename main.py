@@ -89,8 +89,7 @@ def converter_datetime_p_string(obj_datetime: datetime):
     return string_data
 
 
-dict_ocorrPrazoSLA = {'1': ['10/10/2023', 2], '2': ['15/10/2023', 5], '3': ['17/11/2023', 1], '4': ['23/12/2023', 10],
-                      '5': ['24/01/2024', 1]}
+dict_ocorrPrazoSLA = {}
 
 
 def exibir_resultado(dict_oc_sla):
@@ -101,5 +100,15 @@ def exibir_resultado(dict_oc_sla):
               f'\tSLA:     {informacoes[1]} dias úteis\n'
               f'\tPrazo:   {prazo_sla.strftime("%d/%m/%Y")}\n')
 
+
+while True:
+    data_entrada = input("Digite a data de entrada: ")
+    prazo = int(input("Digite o prazo: "))
+
+    cont = str(len(dict_ocorrPrazoSLA)+1)
+    print(cont)
+    dict_ocorrPrazoSLA[cont] = [data_entrada, prazo]
+    if input("sair?: (s)").lower() == "s":
+        break
 
 exibir_resultado(dict_ocorrPrazoSLA)
